@@ -383,7 +383,7 @@ export default Ember.Component.extend({
   */
   selectionObjectWasAdded: function(obj) {
     if (this._selectize) {
-      this._selectize.addItem(get(obj, this.get('_valuePath')));
+      this._selectize.addItem(obj);
     }
   },
   /*
@@ -391,7 +391,7 @@ export default Ember.Component.extend({
   */
   selectionObjectWasRemoved: function(obj) {
     if (this._selectize) {
-      this._selectize.removeItem(get(obj, this.get('_valuePath')));
+      this._selectize.removeItem(obj);
     }
   },
   /**
