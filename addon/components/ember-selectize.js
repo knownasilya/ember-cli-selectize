@@ -120,6 +120,7 @@ export default Ember.Component.extend({
   selectizeOptions: computed(function() {
     var allowCreate = this.get('create-item');
     var valuePath = this.get('_valuePath');
+    var labelPath = this.get('_labelPath');
 
     //Split the passed in plugin config into an array.
     if (typeof this.plugins === 'string') {
@@ -128,9 +129,9 @@ export default Ember.Component.extend({
 
     var options = {
       plugins: this.plugins,
-      labelField: 'label',
+      labelField: labelPath || 'label',
       valueField: valuePath || 'value',
-      searchField: 'label',
+      searchField: labelPath || 'label',
       create: allowCreate ? Ember.run.bind(this, '_create') : false,
       onItemAdd: Ember.run.bind(this, '_onItemAdd'),
       onItemRemove: Ember.run.bind(this, '_onItemRemove'),
